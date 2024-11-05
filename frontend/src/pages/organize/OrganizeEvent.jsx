@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, Form, Row, Col, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import { ArrowLeft } from 'react-bootstrap-icons';
 
 const OrganizeEvent = () => {
     return (
@@ -9,7 +7,7 @@ const OrganizeEvent = () => {
             <nav className="navbar navbar-dark bg-dark p-3">
                 <Container>
                     <a href="/" className="navbar-brand">
-                        <img src="/logo.png" width="30" height="30" alt="Nexosport logo" /> NEXOSPORT
+                        <img src="/logo.png" width="30" height="30" alt="NEXOSPORT logo" /> NEXOSPORT
                     </a>
                     <div className="navbar-text">
                         <i className="bi bi-person-circle" style={{ fontSize: '1.5rem', color: 'white' }}></i>
@@ -18,9 +16,8 @@ const OrganizeEvent = () => {
             </nav>
 
             <Container className="mt-3">
-                <Button variant="light" href="/" className="d-flex align-items-center mb-3">
-                    {/* <ArrowLeft className="me-2" />  */}
-                    Volver
+                <Button variant="link" href="/" className="text-white bg-dark">
+                    <i className="bi bi-arrow-left"></i>
                 </Button>
             </Container>
 
