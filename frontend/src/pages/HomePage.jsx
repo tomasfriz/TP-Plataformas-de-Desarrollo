@@ -78,23 +78,33 @@ const HomePage = () => {
                 <Row>
                     <Col>
                         <Link to="/organize">
-                            <Button variant="info" className="btn m-2 p-4">Organizar</Button>
+                            <Button variant="info" className="btn m-2 p-4">ORGANIZAR</Button>
                         </Link>
                     </Col>
                     <Col>
-                        <button className="btn btn-success m-2 p-3 pb-2">BUSCAR EVENTOS</button>
+                        <Link to="/searchEvents">
+                            <Button variant="success" className="btn m-2 p-4">BUSCAR EVENTO</Button>
+                        </Link>
                     </Col>
                     <Col>
-                        <button className="btn btn-info m-2 p-4">MIS EVENTOS</button>
+                        <Link to="/myEvents">
+                            <Button variant="info" className="btn m-2 p-4">MIS EVENTOS</Button>
+                        </Link>
                     </Col>
                     <Col>
-                        <button className="btn btn-success m-2 p-3 pb-2">OTROS EVENTOS</button>
+                        <Link to="/otherEvents">
+                            <Button variant="success" className="btn m-2 p-4">OTROS EVENTOS</Button>
+                        </Link>
                     </Col>
                     <Col>
-                        <button className="btn btn-info m-2 p-4">LUGARES</button>
+                        <Link to="/places">
+                            <Button variant="info" className="btn m-2 p-4">LUGARES</Button>
+                        </Link>
                     </Col>
                     <Col>
-                        <button className="btn btn-success m-2 p-4">NOTICIAS</button>
+                        <Link to="/news">
+                            <Button variant="success" className="btn m-2 p-4">NOTICIAS</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>
