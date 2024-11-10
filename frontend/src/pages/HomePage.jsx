@@ -56,18 +56,8 @@ const HomePage = () => {
             <Container className="text-center my-5">
                 <Row>
                     <Col>
-                        <Link to="/organize">
-                            <Button variant="info" className="btn m-2 p-4">ORGANIZAR</Button>
-                        </Link>
-                    </Col>
-                    <Col>
                         <Link to="/searchEvents">
                             <Button variant="success" className="btn m-2 p-4">BUSCAR EVENTO</Button>
-                        </Link>
-                    </Col>
-                    <Col>
-                        <Link to="/myEvents">
-                            <Button variant="info" className="btn m-2 p-4">MIS EVENTOS</Button>
                         </Link>
                     </Col>
                     <Col>

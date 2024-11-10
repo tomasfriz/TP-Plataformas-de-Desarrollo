@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Navbar } from 'react-bootstrap';
 import logo from '/logo.png';
+import UserMenu from '../userMenu/UserMenu';
 
 
 
@@ -20,7 +21,8 @@ const Nav = () => {
             </Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                    <i className="bi bi-person-circle" style={{ fontSize: '1.5rem', color: 'white' }}></i>
+                    
+                    <UserMenu></UserMenu>
                 </Navbar.Text>
             </Navbar.Collapse>
         </Container>
