@@ -87,12 +87,6 @@ const HomePage = () => {
                     </Col>
                 </Row>
             </Container>
-
-            <footer className="bg-dark text-center text-white py-3">
-                <Container>
-                    <small>&copy;2024 NEXOSPORT. Todos los derechos reservados.</small>
-                </Container>
-            </footer>
         </div>
     );
 };

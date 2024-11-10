@@ -39,9 +39,6 @@ const MyEvents = () => {
                     </Card.Body>
                 </Card>
             ))}
-            <footer className="text-center mt-4">
-                <p>©2024 <strong>NEXOSPORT</strong>. Todos los derechos reservados.</p>
-            </footer>
         </Container>
     );
 };

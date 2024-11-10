@@ -45,9 +45,6 @@ const EventDetails = () => {
                     </Row>
                 </Card.Body>
             </Card>
-            <footer className="text-center mt-4 bg-primary text-white p-2">
-                ©2024 <strong>NEXOSPORT</strong>. Todos los derechos reservados.
-            </footer>
         </Container>
     );
 };

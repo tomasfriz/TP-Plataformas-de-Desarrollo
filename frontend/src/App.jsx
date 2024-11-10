@@ -8,7 +8,8 @@ import EventDetails from './pages/eventDetails/EventDetails.jsx';
 import OtherEvents from './pages/otherEvents/OtherEvents.jsx';
 import Places from './pages/places/Places.jsx';
 import News from './pages/news/News.jsx';
-import Nav from './Components/navbar/Nav.jsx'
+import Nav from './Components/navbar/Nav.jsx';
+import Footer from './Components/footer/Footer.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/places" element={<Places />} />
         <Route path="/news" element={<News />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
