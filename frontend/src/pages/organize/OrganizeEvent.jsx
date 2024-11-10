@@ -4,17 +4,6 @@ import { Container, Form, Row, Col, Button } from 'react-bootstrap';
 const OrganizeEvent = () => {
     return (
         <div>
-            <nav className="navbar navbar-dark bg-dark p-3">
-                <Container>
-                    <a href="/" className="navbar-brand">
-                        <img src="/logo.png" width="30" height="30" alt="NEXOSPORT logo" /> NEXOSPORT
-                    </a>
-                    <div className="navbar-text">
-                        <i className="bi bi-person-circle" style={{ fontSize: '1.5rem', color: 'white' }}></i>
-                    </div>
-                </Container>
-            </nav>
-
             <Container className="mt-3">
                 <Button variant="link" href="/" className="text-white bg-dark">
                     <i className="bi bi-arrow-left"></i>

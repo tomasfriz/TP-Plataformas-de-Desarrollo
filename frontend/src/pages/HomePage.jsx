@@ -2,32 +2,11 @@ import React from 'react';
 import { Container, Row, Col, Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '/logo.png';
 import mainImage from '/banner.jpg';
 
 const HomePage = () => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark" className="p-3">
-                <Container>
-                    <Navbar.Brand href="#home">
-                        <img
-                            src={logo}
-                            width="30"
-                            height="30"
-                            className="d-inline-block align-top"
-                            alt="NEXOSPORT logo"
-                        />{' '}
-                        NEXOSPORT
-                    </Navbar.Brand>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            <i className="bi bi-person-circle" style={{ fontSize: '1.5rem', color: 'white' }}></i>
-                        </Navbar.Text>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-
             <div
                 style={{
                     position: 'relative',

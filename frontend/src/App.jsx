@@ -8,10 +8,13 @@ import EventDetails from './pages/eventDetails/EventDetails.jsx';
 import OtherEvents from './pages/otherEvents/OtherEvents.jsx';
 import Places from './pages/places/Places.jsx';
 import News from './pages/news/News.jsx';
+import Nav from './Components/navbar/Nav.jsx'
 
 function App() {
   return (
+    
     <Router>
+      <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/organize" element={<OrganizeEvent />} />
