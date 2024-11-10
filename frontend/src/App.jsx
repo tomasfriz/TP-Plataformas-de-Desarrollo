@@ -9,7 +9,7 @@ import OtherEvents from './pages/otherEvents/OtherEvents.jsx';
 import Places from './pages/places/Places.jsx';
 import News from './pages/news/News.jsx';
 import Nav from './Components/navbar/Nav.jsx';
-import Footer from './Components/footer/Footer.jsx';
+import Foot from './Components/footer/Foot.jsx';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="/places" element={<Places />} />
         <Route path="/news" element={<News />} />
       </Routes>
-      <Footer />
+      <Foot />
     </Router>
   );
 }
