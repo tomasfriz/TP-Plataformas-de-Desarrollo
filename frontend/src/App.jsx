@@ -10,14 +10,17 @@ import Places from './pages/places/Places.jsx';
 import News from './pages/news/News.jsx';
 import Nav from './Components/navbar/Nav.jsx';
 import Foot from './Components/footer/Foot.jsx';
+import Register from './pages/register/Register.jsx';
+import Login from './pages/login/Login.jsx';
+import AuthSelection from './pages/auth/AuthSelection.jsx';
 
 function App() {
   return (
-    
     <Router>
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthSelection />} />
         <Route path="/organize" element={<OrganizeEvent />} />
         <Route path="/searchEvents" element={<SearchEvents />} />
         <Route path="/myEvents" element={<MyEvents />} />
@@ -25,6 +28,8 @@ function App() {
         <Route path="/eventDetails/:id" element={<OtherEvents />} />
         <Route path="/places" element={<Places />} />
         <Route path="/news" element={<News />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Foot />
     </Router>

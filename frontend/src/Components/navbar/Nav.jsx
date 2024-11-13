@@ -21,7 +21,6 @@ const Nav = () => {
             </Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                    
                     <UserMenu></UserMenu>
                 </Navbar.Text>
             </Navbar.Collapse>

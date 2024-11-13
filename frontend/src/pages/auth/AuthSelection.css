@@ -1,0 +1,44 @@
+.auth-selection {
+    background-color: #1c1c1c;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.auth-button {
+    background-color: #8bc34a;
+    border: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth-button i {
+    font-size: 1.2rem;
+}
+
+.register-link {
+    color: #8bc34a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
