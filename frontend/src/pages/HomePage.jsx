@@ -3,6 +3,7 @@ import { Container, Row, Col, Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import mainImage from '/banner.jpg';
+import CardButton from '../Components/cardButton/CardButton';
 
 const HomePage = () => {
     return (
@@ -56,24 +57,26 @@ const HomePage = () => {
             <Container className="text-center my-5">
                 <Row>
                     <Col>
-                        <Link to="/searchEvents">
-                            <Button variant="success" className="btn m-2 p-4">BUSCAR EVENTO</Button>
-                        </Link>
+                        <CardButton texto="Buscar Evento" link="/searchEvents">
+                            <span className="bi bi-search fs-2"></span>
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/otherEvents">
-                            <Button variant="success" className="btn m-2 p-4">OTROS EVENTOS</Button>
-                        </Link>
+                        <CardButton texto="Otros Eventos" link="/otherEvents">
+                            <span className="bi bi-question-square fs-3"></span>
+                            
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/places">
-                            <Button variant="info" className="btn m-2 p-4">LUGARES</Button>
-                        </Link>
+                        <CardButton texto="Lugares" link="/places">
+                            <span className="bi bi-geo-alt fs-2"></span>
+                            
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/news">
-                            <Button variant="success" className="btn m-2 p-4">NOTICIAS</Button>
-                        </Link>
+                        <CardButton texto="Noticias" link="/news">
+                            <span className="bi bi-newspaper fs-2"></span>
+                        </CardButton>
                     </Col>
                 </Row>
             </Container>
