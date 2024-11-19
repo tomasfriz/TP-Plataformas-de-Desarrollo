@@ -64,13 +64,13 @@ const HomePage = () => {
                     <Col>
                         <CardButton texto="Otros Eventos" link="/otherEvents">
                             <span className="bi bi-question-square fs-3"></span>
-                            
+
                         </CardButton>
                     </Col>
                     <Col>
                         <CardButton texto="Lugares" link="/places">
                             <span className="bi bi-geo-alt fs-2"></span>
-                            
+
                         </CardButton>
                     </Col>
                     <Col>

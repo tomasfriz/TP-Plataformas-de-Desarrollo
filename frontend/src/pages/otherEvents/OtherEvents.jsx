@@ -1,36 +1,52 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
+import { Container, Card, Button, ListGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const OtherEvents = () => {
     const eventos = [
-        { id: 1, titulo: 'Evento 1', ubicacion: 'Ubicación 1' },
-        { id: 2, titulo: 'Evento 2', ubicacion: 'Ubicación 2' },
-        { id: 3, titulo: 'Evento 3', ubicacion: 'Ubicación 3' },
+        { id: 1, titulo: 'Yoga', ubicacion: 'Varios lugares', imagen: "/yoga.jpg" },
+        { id: 2, titulo: 'Zumba', ubicacion: 'Barracas', imagen: "/zumba.jpg" },
+        { id: 3, titulo: 'Bicicleta', ubicacion: 'Retiro', imagen: "/bicicleta.jpg" },
+        { id: 3, titulo: 'Patin', ubicacion: 'Palermo', imagen: "/patin.jpg" },
     ];
 
+    const navigate = useNavigate();
+
+    const handleNoticiaClick = (id) => {
+        navigate(`/otrosEventos/${id}`);
+    };
+
     return (
-        <Container>
-            <h2>Otros Eventos</h2>
-            <Row>
-                {eventos.map(evento => (
-                    <Col key={evento.id} md={4}>
-                        <Card className="mb-3">
-                            <Card.Body>
-                                <Card.Title>{evento.titulo}</Card.Title>
-                                <Card.Text>
-                                    <FaMapMarkerAlt /> {evento.ubicacion}
-                                </Card.Text>
-                                <Link to={`/otros-eventos/${evento.id}`}>
-                                    Ver detalles <FaChevronRight />
-                                </Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
+        <div>
+            <Container className="mt-3">
+                <Button variant="link" href="/" className="text-white bg-dark">
+                    <i className="bi bi-arrow-left"></i>
+                </Button>
+            </Container>
+            <Container>
+                <h2 className="my-4">Otros eventos</h2>
+                <ListGroup variant="flush">
+                    {eventos.map((evento) => (
+                        <ListGroup.Item
+                            key={evento.id}
+                            action
+                            onClick={() => handleNoticiaClick(evento.id)}
+                            className="d-flex align-items-center mb-3"
+                        >
+                            <Card.Img
+                                variant="left"
+                                src={evento.imagen}
+                                style={{ width: '100px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
+                            />
+                            <div className="flex-grow-1">
+                                <h5>{evento.titulo}</h5>
+                                <p className="text-muted">{evento.ubicacion}</p>
+                            </div>
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            </Container>
+        </div>
     );
 };
 

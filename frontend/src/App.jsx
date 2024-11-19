@@ -24,8 +24,8 @@ function App() {
         <Route path="/organize" element={<OrganizeEvent />} />
         <Route path="/searchEvents" element={<SearchEvents />} />
         <Route path="/myEvents" element={<MyEvents />} />
-        <Route path="/otherEvents" element={<EventDetails />} />
-        <Route path="/eventDetails/:id" element={<OtherEvents />} />
+        <Route path="/otherEvents" element={<OtherEvents />} />
+        <Route path="/eventDetails/:id" element={<EventDetails />} />
         <Route path="/places" element={<Places />} />
         <Route path="/news" element={<News />} />
         <Route path="/register" element={<Register />} />
