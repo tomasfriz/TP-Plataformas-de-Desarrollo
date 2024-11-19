@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/auth" element={<AuthSelection />} />
         <Route path="/organize" element={<OrganizeEvent />} />
         <Route path="/searchEvents" element={<SearchEvents />} />
