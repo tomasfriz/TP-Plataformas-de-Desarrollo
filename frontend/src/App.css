@@ -1,7 +1,12 @@
 #root {
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  --custom-white: #F7F8F9;
+  --custom-gray: #AFB1B6;
+  --custom-green: #94B343;
+  --custom-black: #212121;
 }
 
 .content {
@@ -9,8 +14,8 @@
 }
 
 footer {
-  background-color: #343a40;
-  color: #fff;
+  background-color: var(--custom-black);
+  color: var(--custom-white);
   text-align: center;
   padding: 1rem;
 }

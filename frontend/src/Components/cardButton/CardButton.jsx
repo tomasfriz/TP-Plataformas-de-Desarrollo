@@ -15,12 +15,11 @@ const CardButton = ({ texto, link, children }) => {
                 height: '150px',
                 border: '1px solid #ccc',
                 borderRadius: '8px',
-                color:'white',
-                fontSize:'25px'
+                color: 'white',
+                fontSize: '25px'
             }}>
                 <span>{texto}</span>
                 {children}
-                
             </Button>
         </Link>
     )
