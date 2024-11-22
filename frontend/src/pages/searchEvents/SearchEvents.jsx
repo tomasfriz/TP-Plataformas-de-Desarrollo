@@ -25,7 +25,7 @@ const SearchEvents = () => {
     );
 
     const handleEventoClick = (id) => {
-        navigate(`/eventos/${id}`);
+        navigate(`/eventDetails/${id}`);
     };
 
     return (
@@ -55,7 +55,7 @@ const SearchEvents = () => {
                             <Card.Img
                                 variant="left"
                                 src={evento.imagen}
-                                style={{ width: '80px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
+                                style={{ width: '150px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
                             />
                             <div className="flex-grow-1">
                                 <h5>{evento.titulo}</h5>

@@ -2,22 +2,22 @@ import React from 'react';
 import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
-const EventDetails = () => {
-    const evento = {
-        nombre: 'Fútbol',
-        fecha: '05/05/2024',
-        hora: '22:00 hs',
-        ubicacion: 'Boedo',
-        jugadores: '1/10',
-        nivel: 'Intermedio',
-        genero: 'Masculino',
-        imagen: 'banner.jpg',
-    };
+const evento = {
+    nombre: 'Fútbol',
+    fecha: '05/05/2024',
+    hora: '22:00 hs',
+    ubicacion: 'Boedo',
+    jugadores: '1/10',
+    nivel: 'Intermedio',
+    genero: 'Masculino',
+    imagen: '/banner-detalles.jpg',
+};
 
+const EventDetails = () => {
     return (
         <div>
             <Container className="mt-3">
-                <Button variant="link" href="/searchEvents" className="text-white bg-dark">
+                <Button variant="link" href="/" className="text-white bg-dark">
                     <i className="bi bi-arrow-left"></i>
                 </Button>
             </Container>

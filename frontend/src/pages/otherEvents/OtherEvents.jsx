@@ -1,19 +1,23 @@
 import React from 'react';
-import { Container, Card, Button, ListGroup } from 'react-bootstrap';
+import { Container, Card, ListGroup, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const OtherEvents = () => {
-    const eventos = [
-        { id: 1, titulo: 'Yoga', ubicacion: 'Varios lugares', imagen: "/yoga.jpg" },
-        { id: 2, titulo: 'Zumba', ubicacion: 'Barracas', imagen: "/zumba.jpg" },
-        { id: 3, titulo: 'Bicicleta', ubicacion: 'Retiro', imagen: "/bicicleta.jpg" },
-        { id: 3, titulo: 'Patin', ubicacion: 'Palermo', imagen: "/patin.jpg" },
-    ];
+const eventos = [
+    { id: 1, titulo: 'Yoga', ubicacion: 'Varios lugares', imagen: "/yoga.jpg", url: "https://buenosaires.gob.ar/noticias/clases-de-yoga-gratuitas-en-la-ciudad" },
+    { id: 2, titulo: 'Zumba', ubicacion: 'Barracas', imagen: "/zumba.jpg", url: "https://buenosaires.gob.ar/cultura/usina-del-arte/clase-de-zumba" },
+    { id: 3, titulo: 'Bicicleta', ubicacion: 'Retiro', imagen: "/bicicleta.jpg", url: "https://www.biketours.com.ar/" },
+    { id: 4, titulo: 'Patin', ubicacion: 'Palermo', imagen: "/patin.jpg", url: "https://www.meetup.com/es/buenos-aires-roller-skating-meetup/" },
+];
 
+const OtherEvents = () => {
     const navigate = useNavigate();
 
-    const handleNoticiaClick = (id) => {
-        navigate(`/otrosEventos/${id}`);
+    const handleEventClick = (url) => {
+        if (url.startsWith('http') || url.startsWith('https')) {
+            window.open(url, '_blank');
+        } else {
+            navigate(url);
+        }
     };
 
     return (
@@ -30,13 +34,13 @@ const OtherEvents = () => {
                         <ListGroup.Item
                             key={evento.id}
                             action
-                            onClick={() => handleNoticiaClick(evento.id)}
+                            onClick={() => handleEventClick(evento.url)}
                             className="d-flex align-items-center mb-3"
                         >
                             <Card.Img
                                 variant="left"
                                 src={evento.imagen}
-                                style={{ width: '100px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
+                                style={{ width: '150px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
                             />
                             <div className="flex-grow-1">
                                 <h5>{evento.titulo}</h5>
