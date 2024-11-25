@@ -9,6 +9,10 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    const handleRegister = () => {
+        navigation.navigate('/register');
+    };
+
     const handleLogin = () => {
         // Verificamos si el usuario y contraseña son correctos
         if (username === '' || password === '') {
@@ -21,25 +25,20 @@ const Login = () => {
                 if (username === usuario.usuario && password === usuario.clave) {
                   login = true
                   if(usuario.rolId === 1){
-                    navigate('/adminPanel', { user: usuario.rol });
+                    navigation.navigate('/adminPanel');
                   }else{
-                    navigate('/', { user: usuario.ro });
+                    navigation.navigate('/');
                   }  
 
                   break;
                 }
-              }          
-              // Si no se encuentra un usuario que coincida
-              if (!login) {
+            }          
+            // Si no se encuentra un usuario que coincida
+            if (!login) {
                 setMensaje("Usuario o contraseña incorrectos");
-              }
-            };
-        }
-    };
-
-    const handleRegister = () => {
-        navigation.navigate('/register');
-    };
+            }
+        };
+    }
 
     return (
         <div>
@@ -85,5 +84,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;
