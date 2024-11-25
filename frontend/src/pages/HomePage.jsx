@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Row, Col, Navbar, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import mainImage from '/banner.jpg';
+import CardButton from '../Components/cardButton/CardButton';
 
 const HomePage = () => {
     return (
@@ -33,15 +33,15 @@ const HomePage = () => {
                     }}
                 >
                     <h1 className="text-white text-center p-5 pb-3">
-                        ¡Bienvenido/a a un nuevo espacio para el encuentro con la actividad física!
+                        ¡Bienvenido a un nuevo espacio para el encuentro con la actividad física!
                     </h1>
-                    <p className="text-white text-center">¿Qué quieres hacer hoy?</p>
+                    <h2 className="text-white text-center pt-5">¿Qué quieres hacer hoy?</h2>
                 </div>
             </div>
 
             <Container fluid className="bg-dark text-white py-4">
                 <Container>
-                    <p className="text-center mb-0">
+                    <p className="text-center mb-0 p-3">
                         Crea eventos sobre la disciplina que más te guste y elige el lugar, la fecha y la hora.
                         <br />
                         Busca eventos que sean de tu agrado.
@@ -56,24 +56,31 @@ const HomePage = () => {
             <Container className="text-center my-5">
                 <Row>
                     <Col>
-                        <Link to="/searchEvents">
-                            <Button variant="success" className="btn m-2 p-4">BUSCAR EVENTO</Button>
-                        </Link>
+                        <CardButton texto="Buscar Evento" link="/searchEvents">
+                            <span className="bi bi-search fs-2"></span>
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/otherEvents">
-                            <Button variant="success" className="btn m-2 p-4">OTROS EVENTOS</Button>
-                        </Link>
+                        <CardButton texto="Otros Eventos" link="/otherEvents">
+                            <span className="bi bi-question-square fs-3"></span>
+
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/places">
-                            <Button variant="info" className="btn m-2 p-4">LUGARES</Button>
-                        </Link>
+                        <CardButton texto="Lugares" link="/places">
+                            <span className="bi bi-geo-alt fs-2"></span>
+
+                        </CardButton>
                     </Col>
                     <Col>
-                        <Link to="/news">
-                            <Button variant="success" className="btn m-2 p-4">NOTICIAS</Button>
-                        </Link>
+                        <CardButton texto="Noticias" link="/news">
+                            <span className="bi bi-newspaper fs-2"></span>
+                        </CardButton>
+                    </Col>
+                    <Col>
+                        <CardButton texto="Cerrar sesion" link="/login">
+                            <span className="bi bi-newspaper fs-2"></span>
+                        </CardButton>
                     </Col>
                 </Row>
             </Container>

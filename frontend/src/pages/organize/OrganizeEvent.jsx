@@ -10,7 +10,7 @@ const OrganizeEvent = () => {
                 </Button>
             </Container>
 
-            <Container className="p-4" style={{ maxWidth: '600px', backgroundColor: '#f7f7f7', borderRadius: '8px' }}>
+            <Container className="p-4 mb-5 mt-5" style={{ maxWidth: '600px', backgroundColor: '#f7f7f7', borderRadius: '8px' }}>
                 <h3 className="text-center mb-4">ORGANIZAR EVENTO</h3>
                 <Form>
                     <Form.Group controlId="eventSport">

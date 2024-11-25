@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Card, ListGroup, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import infoEvent from '../constantes/InfoEvent';
+import infoLogin from '../constantes/InfoLogin';
 
-const OtherEvents = () => {
+const AdminPanel = () => {
     const navigate = useNavigate();
 
     const handleEventClick = (url) => {
@@ -22,7 +23,7 @@ const OtherEvents = () => {
                 </Button>
             </Container>
             <Container>
-                <h2 className="my-4">Otros eventos</h2>
+                <h2 className="my-4">Eventos</h2>
                 <ListGroup variant="flush">
                     {infoEvent.otrosEventos.map((evento) => (
                         <ListGroup.Item
@@ -42,10 +43,29 @@ const OtherEvents = () => {
                             </div>
                         </ListGroup.Item>
                     ))}
-                </ListGroup>
+                </ListGroup>    
+            </Container>
+            <Container>
+                <h2 className="my-4">Usuarios</h2>
+                <ListGroup variant="flush">
+                    {infoLogin.usuarios.map((user) => (
+                        <ListGroup.Item>
+                            <div className="flex-grow-1">
+                                <h5>{user.usuario} - {user.rol}</h5>
+                                <p className="text-muted">{evento.ubicacion}</p>
+                            </div>
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>   
+            </Container>
+            <Container>
+                <CardButton texto="Cerrar sesion" link="/login">
+                    <span className="bi bi-newspaper fs-2"></span>
+                </CardButton>
             </Container>
         </div>
     );
 };
 
-export default OtherEvents;
+
+export default AdminPanel;

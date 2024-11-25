@@ -1,22 +1,28 @@
 const InfoLogin = {
-  admin: {
-    id: 1,
-    usuario: "tomasfriz",
-    clave: "tomasfriz",
-    rol: "admin", 
-  },
-  user: {
-    id: 2,
-    usuario: "tomaspisarski",
-    clave: "tomaspisarski",
-    rol: "usuario", 
-  },
-  user2: {
-    id: 3,
-    usuario: "damianpart",
-    clave: "damianpart",
-    rol: "usuario", 
-  }
+  usuarios: [
+    {
+      id: 1,
+      usuario: "tomasfriz",
+      clave: "tomasfriz",
+      rol: "admin", 
+      rolId: 1
+    },
+    {
+      id: 2,
+      usuario: "tomaspisarski",
+      clave: "tomaspisarski",
+      rol: "usuario", 
+      rolId: 2
+    },
+    {
+      id: 3,
+      usuario: "damianpart",
+      clave: "damianpart",
+      rol: "usuario", 
+      rolId: 2
+    }
+  ]
+  
 };
 
 export default InfoLogin;
