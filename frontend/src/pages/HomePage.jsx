@@ -77,11 +77,6 @@ const HomePage = () => {
                             <span className="bi bi-newspaper fs-2"></span>
                         </CardButton>
                     </Col>
-                    <Col>
-                        <CardButton texto="Cerrar sesion" link="/login">
-                            <span className="bi bi-newspaper fs-2"></span>
-                        </CardButton>
-                    </Col>
                 </Row>
             </Container>
         </div>

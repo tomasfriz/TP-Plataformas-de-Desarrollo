@@ -58,11 +58,6 @@ const AdminPanel = () => {
                     ))}
                 </ListGroup>   
             </Container>
-            <Container>
-                <CardButton texto="Cerrar sesion" link="/login">
-                    <span className="bi bi-newspaper fs-2"></span>
-                </CardButton>
-            </Container>
         </div>
     );
 };

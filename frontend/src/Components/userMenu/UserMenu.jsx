@@ -11,7 +11,7 @@ function UserMenu() {
       <Dropdown.Menu style={{ backgroundColor: '#343a40', color: 'white' }} >
         <Dropdown.Item href="/myEvents">Mis Eventos</Dropdown.Item>
         <Dropdown.Item href="/organize" >Organizar Evento</Dropdown.Item>
-        <Dropdown.Item href="#" onClick={() => alert('Cerrar sesión')}>Cerrar Sesión</Dropdown.Item>
+        <Dropdown.Item href="/login" onClick={() => alert('Cerrar sesión')}>Cerrar Sesión</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
