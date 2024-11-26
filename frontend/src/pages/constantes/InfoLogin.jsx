@@ -4,25 +4,25 @@ const InfoLogin = {
       id: 1,
       usuario: "tomasfriz",
       clave: "tomasfriz",
-      rol: "admin", 
+      rol: "admin",
       rolId: 1
     },
     {
       id: 2,
       usuario: "tomaspisarski",
       clave: "tomaspisarski",
-      rol: "usuario", 
+      rol: "usuario",
       rolId: 2
     },
     {
       id: 3,
       usuario: "damianpart",
       clave: "damianpart",
-      rol: "usuario", 
+      rol: "usuario",
       rolId: 2
     }
   ]
-  
+
 };
 
 export default InfoLogin;

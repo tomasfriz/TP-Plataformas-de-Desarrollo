@@ -12,8 +12,8 @@ import Nav from './Components/navbar/Nav.jsx';
 import Foot from './Components/footer/Foot.jsx';
 import Register from './pages/register/Register.jsx';
 import Login from './pages/login/Login.jsx';
-import AuthSelection from './pages/auth/AuthSelection.jsx';
 import AdminPanel from './pages/adminPanel/AdminPanel.jsx';
+import './App.css'
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/auth" element={<AuthSelection />} />
             <Route path="/organize" element={<OrganizeEvent />} />
             <Route path="/searchEvents" element={<SearchEvents />} />
             <Route path="/myEvents" element={<MyEvents />} />

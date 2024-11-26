@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 
 const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate(); // Declarar navigate
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -12,17 +14,12 @@ const Register = () => {
             setError('Por favor ingrese ambos campos.');
         } else {
             setError('');
-            alert('¡Registro exitoso!');
+            navigate('/'); // Redirigir a Home
         }
     };
 
     return (
         <div>
-            <Container className="mt-3">
-                <Button variant="link" href="/auth" className="text-white bg-dark">
-                    <i className="bi bi-arrow-left"></i>
-                </Button>
-            </Container>
             <Container className="mt-5">
                 <h2>¡Regístrate!</h2>
                 <p>Regístrese con nombre de usuario y contraseña para empezar</p>
@@ -31,7 +28,7 @@ const Register = () => {
                         <Form.Label>Nombre de usuario:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="..."
+                            placeholder="Ingrese su nombre de usuario aquí..."
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -41,7 +38,7 @@ const Register = () => {
                         <Form.Label>Contraseña:</Form.Label>
                         <Form.Control
                             type="password"
-                            placeholder="..."
+                            placeholder="Ingrese su contraseña aquí..."
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />

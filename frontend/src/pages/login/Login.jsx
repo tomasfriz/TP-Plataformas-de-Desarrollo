@@ -9,44 +9,45 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    async function saveData(rol) {
+        try {
+            sessionStorage.setItem('rol', rol);
+        } catch (error) {
+            console.error('Error, ', error);
+        }
+    }
+
     const handleRegister = () => {
-        navigation.navigate('/register');
+        navigate('/register');
     };
 
-    const handleLogin = () => {
-        // Verificamos si el usuario y contraseña son correctos
+    const handleLogin = (e) => {
+        e.preventDefault();
         if (username === '' || password === '') {
             setError("Por favor ingrese ambos campos");
-        } else{
+        } else {
             let login = false;
             for (let i = 0; i < infoLogin.usuarios.length; i++) {
-                const usuario = infoLogin.usuarios[i];                
-                // Comprobar si el usuario y la clave coinciden
+                const usuario = infoLogin.usuarios[i];
                 if (username === usuario.usuario && password === usuario.clave) {
-                  login = true
-                  if(usuario.rolId === 1){
-                    navigation.navigate('/adminPanel');
-                  }else{
-                    navigation.navigate('/');
-                  }  
-
-                  break;
+                    login = true;
+                    saveData(usuario.rolId);
+                    if (usuario.rolId === 1) {
+                        navigate('/adminPanel');
+                    } else {
+                        navigate('/');
+                    }
+                    break;
                 }
-            }          
-            // Si no se encuentra un usuario que coincida
-            if (!login) {
-                setMensaje("Usuario o contraseña incorrectos");
             }
-        };
-    }
+            if (!login) {
+                setError("Usuario o contraseña incorrectos");
+            }
+        }
+    };
 
     return (
         <div>
-            <Container className="mt-3">
-                <Button variant="link" href="/auth" className="text-white bg-dark">
-                    <i className="bi bi-arrow-left"></i>
-                </Button>
-            </Container>
             <Container className="mt-5">
                 <h2>¡Bienvenido!</h2>
                 <p>Ingrese su nombre de usuario y su contraseña para empezar</p>
@@ -84,6 +85,5 @@ const Login = () => {
         </div>
     );
 };
-
 
 export default Login;

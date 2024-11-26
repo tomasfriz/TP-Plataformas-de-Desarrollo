@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
-import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { Container, ListGroup, Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import infoEvent from '../constantes/InfoEvent';
 import infoLogin from '../constantes/InfoLogin';
 
@@ -43,7 +43,7 @@ const AdminPanel = () => {
                             </div>
                         </ListGroup.Item>
                     ))}
-                </ListGroup>    
+                </ListGroup>
             </Container>
             <Container>
                 <h2 className="my-4">Usuarios</h2>
@@ -52,11 +52,11 @@ const AdminPanel = () => {
                         <ListGroup.Item>
                             <div className="flex-grow-1">
                                 <h5>{user.usuario} - {user.rol}</h5>
-                                <p className="text-muted">{evento.ubicacion}</p>
+                                <p className="text-muted">{user.ubicacion}</p>
                             </div>
                         </ListGroup.Item>
                     ))}
-                </ListGroup>   
+                </ListGroup>
             </Container>
         </div>
     );
