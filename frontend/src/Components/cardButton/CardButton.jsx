@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 const CardButton = ({ texto, link, children }) => {
     return (
         <Link to={link} style={{ textDecoration: 'none' }}>
-            <Button variant="success" className="btn m-2 p-4" style={{
+            <Button className="btn m-2 p-4" style={{
                 display: 'flex',
+                backgroundColor: 'var(--custom-green)',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
