@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createEvent, updateEvent, getEvent, deleteEvent } from '../controllers/eventController.js';
+import { createEvent, updateEvent, getEvent, getEvents, deleteEvent } from '../controllers/eventController.js';
 const router = Router();
 
 router.post('/', async (req, res) => {
@@ -10,6 +10,16 @@ router.post('/', async (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
+
+router.get('/', async (req, res) => {
+  try {
+    const events = await getEvents();
+    res.send(events);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+});
+
 
 router.put('/:id', async (req, res) => {
   try {

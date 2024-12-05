@@ -15,6 +15,12 @@ export async function getEvent(eventId) {
   return doc.exists ? doc.data() : null;
 }
 
+export async function getEvents() {
+  const doc = await admin.firestore().collection('events').get();
+  const events = doc.docs.map(doc => ({id: doc.id, ...doc.data()}));
+  return events;
+}
+
 export async function deleteEvent(eventId) {
   await admin.firestore().collection('events').doc(eventId).delete();
 }

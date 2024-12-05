@@ -1,6 +1,5 @@
 import pkg from 'firebase-admin';
 const { auth } = pkg;
-import bcrypt from 'bcrypt'
 
 export async function register({email, password, rol}) {
 
@@ -10,7 +9,7 @@ export async function register({email, password, rol}) {
   return userRecord;
 }
 
-export async function login({email, password}) {
+export async function login({email}) {
   const user = await auth().getUserByEmail(email);
   return user;
   
