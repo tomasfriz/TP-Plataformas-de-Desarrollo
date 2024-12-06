@@ -34,8 +34,10 @@ const News = () => {
                             key={noticia.id}
                             action
                             onClick={() => handleNoticiaClick(noticia.url)}
-                            className="d-flex align-items-center mb-3"
-                        >
+                            className="d-flex align-items-center mb-3" style={{
+                                borderRadius: '10px',
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                            }}>
                             <Card.Img
                                 variant="left"
                                 src={noticia.imagen}

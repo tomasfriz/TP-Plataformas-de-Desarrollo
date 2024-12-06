@@ -41,22 +41,34 @@ const Login = () => {
                 }
             }
             if (!login) {
-                setError("Usuario o contraseña incorrectos");
+                setError("Mail o contraseña incorrectos");
             }
         }
     };
 
     return (
-        <div>
-            <Container className="mt-5">
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "75vh",
+        }}>
+            <Container className="mt-5" style={{
+                width: "100%",
+                maxWidth: "100vh",
+                padding: "20px",
+                backgroundColor: 'var(--custom-gray)',
+                borderRadius: "10px",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+            }}>
                 <h2>¡Bienvenido!</h2>
                 <p>Ingrese su nombre de usuario y su contraseña para empezar</p>
                 <Form onSubmit={handleLogin}>
                     <Form.Group controlId="formUsername" className="mb-3">
-                        <Form.Label>Nombre de usuario:</Form.Label>
+                        <Form.Label>Mail:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Ingrese su nombre de usuario aquí..."
+                            placeholder="Ingrese su mail aquí..."
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -74,10 +86,17 @@ const Login = () => {
 
                     {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                    <Button variant="success" type="submit">
+                    <Button type="submit" style={{
+                        backgroundColor: 'var(--custom-green)',
+                        color: 'var(--custom-white)',
+                    }}>
                         Iniciar sesión
                     </Button>
-                    <Button variant="link" onClick={handleRegister} style={{ marginLeft: '10px' }}>
+                    <Button onClick={handleRegister} style={{
+                        marginLeft: '10px',
+                        backgroundColor: 'var(--custom-green)',
+                        color: 'var(--custom-white)',
+                    }}>
                         Registrar
                     </Button>
                 </Form>

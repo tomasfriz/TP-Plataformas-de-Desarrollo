@@ -26,7 +26,7 @@ function UserMenu() {
         },
         dropdownItemHover: {
             backgroundColor: 'var(--custom-green)',
-            color: 'var(--custom-black)',
+            color: 'var(--custom-white)',
         },
     };
 

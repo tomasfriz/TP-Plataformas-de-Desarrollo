@@ -7,9 +7,13 @@ import UserMenu from '../userMenu/UserMenu';
 
 const Nav = () => {
     return (
-        <Navbar bg="dark" variant="dark" className="p-3">
+        <Navbar className="p-3" style={{
+            backgroundColor: 'var(--custom-black)',
+        }}>
         <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/" style={{
+            color: 'var(--custom-white)',
+        }}>
                 <img
                     src={logo}
                     width="30"

@@ -26,8 +26,10 @@ const MyEvents = () => {
                             key={evento.id}
                             action
                             onClick={() => handleNoticiaClick(evento.id)}
-                            className="d-flex align-items-center mb-3"
-                        >
+                            className="d-flex align-items-center mb-3" style={{
+                                borderRadius: '10px',
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                            }}>
                             <Card.Img
                                 variant="left"
                                 src={evento.imagen}
