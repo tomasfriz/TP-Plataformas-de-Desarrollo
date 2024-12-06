@@ -9,13 +9,13 @@ const InfoEvent = {
     genero: 'Masculino',
     imagen: '/banner-detalles.jpg',
   },
-  eventosData: [
-    { id: 1, titulo: "Fútbol", ubicacion: "Boedo", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Masculino", cupos: "1/10" },
-    { id: 2, titulo: "Tenis", ubicacion: "Belgrano", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", cupos: "2/4" },
-    { id: 3, titulo: "Pádel", ubicacion: "Caballito", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", cupos: "3/4" },
-    { id: 4, titulo: "Squash", ubicacion: "Palermo", imagen: "/buscar-perfil.jpg", nivel: "Principiante", genero: "Femenino", cupos: "1/2" },
-    { id: 5, titulo: "Running", ubicacion: "Parque Chacabuco", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", cupos: "3/12" },
-    { id: 6, titulo: "Básquet", ubicacion: "Parque Patricios", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", cupos: "3/10" },
+  eventos: [
+    { id: 1, nombre: "Fútbol", ubicacion: "Boedo", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Masculino", jugadores: "1/10" },
+    { id: 2, nombre: "Tenis", ubicacion: "Belgrano", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", jugadores: "2/4" },
+    { id: 3, nombre: "Pádel", ubicacion: "Caballito", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", jugadores: "3/4" },
+    { id: 4, nombre: "Squash", ubicacion: "Palermo", imagen: "/buscar-perfil.jpg", nivel: "Principiante", genero: "Femenino", jugadores: "1/2" },
+    { id: 5, nombre: "Running", ubicacion: "Parque Chacabuco", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", jugadores: "3/12" },
+    { id: 6, nombre: "Básquet", ubicacion: "Parque Patricios", imagen: "/buscar-perfil.jpg", nivel: "Intermedio", genero: "Mixto", jugadores: "3/10" },
   ],
   otrosEventos: [
     { id: 1, titulo: 'Yoga', ubicacion: 'Varios lugares', imagen: "/yoga.jpg", url: "https://buenosaires.gob.ar/noticias/clases-de-yoga-gratuitas-en-la-ciudad" },
