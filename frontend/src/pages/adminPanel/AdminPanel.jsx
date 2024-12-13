@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Container, ListGroup, Card, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 import infoEvent from '../constantes/InfoEvent';
-import infoLogin from '../constantes/InfoLogin';
-import EventItem from "../../Components/eventItem/EventItem";
+import EventItem from '../../Components/eventItem/EventItem';
 
 const AdminPanel = () => {
-    const navigate = useNavigate();
+    const { user } = useContext(AppContext);
+
+    if (!user || user.rolId !== 1) {
+        return <Navigate to="/" replace />;
+    }
 
     const handleEventoClick = (id) => {
-        navigate(`/eventDetails/${id}`);
     };
 
     return (
@@ -31,14 +34,18 @@ const AdminPanel = () => {
             <Container>
                 <h3 className="my-4">Usuarios</h3>
                 <ListGroup variant="flush">
-                    {infoLogin.usuarios.map((user) => (
-                        <ListGroup.Item className="d-flex align-items-center mb-3" style={{
-                            borderRadius: '10px',
-                            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-                        }}>
+                    {user && user.usuarios && user.usuarios.map((usuario) => (
+                        <ListGroup.Item
+                            key={usuario.id}
+                            className="d-flex align-items-center mb-3"
+                            style={{
+                                borderRadius: '10px',
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
                             <div className="flex-grow-1">
-                                <h5>{user.usuario} - {user.rol}</h5>
-                                <p className="text-muted">{user.ubicacion}</p>
+                                <h5>{usuario.usuario} - {usuario.rol}</h5>
+                                <p className="text-muted">{usuario.ubicacion || 'Ubicación no disponible'}</p>
                             </div>
                         </ListGroup.Item>
                     ))}
@@ -47,6 +54,5 @@ const AdminPanel = () => {
         </div>
     );
 };
-
 
 export default AdminPanel;

@@ -178,9 +178,7 @@ const OrganizeEvent = () => {
                             backgroundColor: 'var(--custom-green)',
                             color: 'var(--custom-white)',
                         }}
-                    >
-                        Crear Evento
-                    </Button>
+                    >Crear Evento</Button>
                 </Form>
             </Container>
         </div>
