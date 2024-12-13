@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import HomePage from './pages/HomePage.jsx';
 import OrganizeEvent from './pages/organize/OrganizeEvent.jsx';
 import SearchEvents from './pages/searchEvents/SearchEvents.jsx';

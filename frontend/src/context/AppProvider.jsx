@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
 
     const login = (userData) => {
         setUser(userData);
-        navigate('/');
+        navigate('/dashboard');
     };
 
     const logout = () => {
