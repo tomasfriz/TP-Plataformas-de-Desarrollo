@@ -20,7 +20,8 @@ const AdminPanel = () => {
                 </Button>
             </Container>
             <Container>
-                <h2 className="my-4">Eventos</h2>
+                <h2 className="my-5">Panel de administrador</h2>
+                <h3 className="my-4">Eventos</h3>
                 <ListGroup variant="flush">
                     {infoEvent.eventos.map((evento) => (
                         <EventItem key={evento.id} evento={evento} onClick={() => handleEventoClick(evento.id)} />
@@ -28,7 +29,7 @@ const AdminPanel = () => {
                 </ListGroup>
             </Container>
             <Container>
-                <h2 className="my-4">Usuarios</h2>
+                <h3 className="my-4">Usuarios</h3>
                 <ListGroup variant="flush">
                     {infoLogin.usuarios.map((user) => (
                         <ListGroup.Item className="d-flex align-items-center mb-3" style={{
