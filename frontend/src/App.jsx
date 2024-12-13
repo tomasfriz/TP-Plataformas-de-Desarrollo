@@ -13,6 +13,7 @@ import Foot from './Components/footer/Foot.jsx';
 import Register from './pages/register/Register.jsx';
 import Login from './pages/login/Login.jsx';
 import AdminPanel from './pages/adminPanel/AdminPanel.jsx';
+import Error404 from './pages/error404/Error404.jsx';
 import './App.css'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/adminPanel" element={<AdminPanel />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </div>
         <Foot />
