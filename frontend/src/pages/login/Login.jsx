@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppProvider';
-import InfoLogin from '../constantes/InfoLogin';
-import { Form, Button, Container } from 'react-bootstrap';
 
 const Login = () => {
     const { login } = useContext(AppContext);
@@ -12,49 +11,40 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
-        e.preventDefault(); // Evitar el comportamiento por defecto del formulario.
-
-        // Buscar usuario en la lista hardcodeada de InfoLogin.
-        const user = InfoLogin.usuarios.find(
-            (user) => user.usuario === username && user.clave === password
-        );
-
-        if (user) {
-            // Usuario encontrado, pasa datos al contexto y redirige.
-            login(user); // Puedes ajustar esta función para que maneje los datos del usuario.
-            navigate('/'); // Cambia a la ruta deseada tras iniciar sesión.
-        } else {
-            // Credenciales incorrectas.
-            setError('Credenciales incorrectas.');
+        const users = JSON.parse(sessionStorage.getItem('users')) || [];
+        const success = login(username, password, users, navigate);
+        e.preventDefault();
+        if (username === '' || password === '') {
+            setError("Por favor ingrese ambos campos");
+        }
+        else {
+            if (!success) {
+                setError('Credenciales incorrectas');
+            }
         }
     };
 
     const handleRegister = () => {
-        navigate('/register'); // Navegar a la pantalla de registro.
+        navigate('/register');
     };
 
     return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                minHeight: "75vh",
-            }}
-        >
-            <Container
-                className="mt-5"
-                style={{
-                    width: "100%",
-                    maxWidth: "100vh",
-                    padding: "20px",
-                    backgroundColor: 'var(--custom-gray)',
-                    borderRadius: "10px",
-                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-                }}
-            >
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "75vh",
+        }}>
+            <Container className="mt-5" style={{
+                width: "100%",
+                maxWidth: "100vh",
+                padding: "20px",
+                backgroundColor: 'var(--custom-gray)',
+                borderRadius: "10px",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+            }}>
                 <h2>¡Bienvenido!</h2>
-                <p>Ingrese su nombre de usuario y su contraseña para empezar</p>
+                <p>Ingrese su mail y su contraseña para empezar</p>
                 <Form onSubmit={handleLogin}>
                     <Form.Group controlId="formUsername" className="mb-3">
                         <Form.Label>Nombre de usuario:</Form.Label>
@@ -78,7 +68,7 @@ const Login = () => {
 
                     {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                    <Button type="submit" style={{
+                    <Button onClick={handleLogin} type="submit" style={{
                         backgroundColor: 'var(--custom-green)',
                         color: 'var(--custom-white)',
                     }}>
