@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Container, ListGroup, Button } from 'react-bootstrap';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../context/AppProvider';
 import infoEvent from '../constantes/InfoEvent';
 import EventItem from '../../Components/eventItem/EventItem';
 
