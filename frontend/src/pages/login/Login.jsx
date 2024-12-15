@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 import infoLogin from '../constantes/InfoLogin';
 
 const Login = () => {
@@ -10,35 +12,28 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleRegister = () => {
-        navigation.navigate('/register');
+        navigate('/register');
     };
 
-    const handleLogin = () => {
-        // Verificamos si el usuario y contraseña son correctos
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
         if (username === '' || password === '') {
             setError("Por favor ingrese ambos campos");
-        } else{
-            let login = false;
-            for (let i = 0; i < infoLogin.usuarios.length; i++) {
-                const usuario = infoLogin.usuarios[i];                
-                // Comprobar si el usuario y la clave coinciden
-                if (username === usuario.usuario && password === usuario.clave) {
-                  login = true
-                  if(usuario.rolId === 1){
-                    navigation.navigate('/adminPanel');
-                  }else{
-                    navigation.navigate('/');
-                  }  
-
-                  break;
+        } else {
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);        
+                const user = userCredential.user;                
+                if (email === infoLogin.mailAdmin) {
+                    navigate('/adminPanel');
+                } else {
+                    navigate('/');
                 }
-            }          
-            // Si no se encuentra un usuario que coincida
-            if (!login) {
-                setMensaje("Usuario o contraseña incorrectos");
+            } catch (err) {
+                setError("Error al iniciar sesión. Verifique sus credenciales.");
             }
-        };
-    }
+        }
+    };
 
     return (
         <div>
@@ -52,10 +47,10 @@ const Login = () => {
                 <p>Ingrese su nombre de usuario y su contraseña para empezar</p>
                 <Form onSubmit={handleLogin}>
                     <Form.Group controlId="formUsername" className="mb-3">
-                        <Form.Label>Nombre de usuario:</Form.Label>
+                        <Form.Label>Correo electrónico:</Form.Label>
                         <Form.Control
-                            type="text"
-                            placeholder="Ingrese su nombre de usuario aquí..."
+                            type="email"
+                            placeholder="Ingrese su correo electrónico aquí..."
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -84,6 +79,5 @@ const Login = () => {
         </div>
     );
 };
-
 
 export default Login;

@@ -52,7 +52,7 @@ const AdminPanel = () => {
                         <ListGroup.Item>
                             <div className="flex-grow-1">
                                 <h5>{user.usuario} - {user.rol}</h5>
-                                <p className="text-muted">{evento.ubicacion}</p>
+                                <p className="text-muted">{user.ubicacion}</p>
                             </div>
                         </ListGroup.Item>
                     ))}
