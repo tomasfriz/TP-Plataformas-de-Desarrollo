@@ -24,3 +24,15 @@ export async function getEvents() {
 export async function deleteEvent(eventId) {
   await admin.firestore().collection('events').doc(eventId).delete();
 }
+
+export async function getMyEvents(email) {
+  const snapshot = await admin.firestore().collection('events').where('participants', 'array-contains', email).get();
+  const events = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  return events;
+}
+
+export async function suscribe(eventId, email) {
+  await admin.firestore().collection('events').doc(eventId).update({
+    participants: admin.firestore.FieldValue.arrayUnion(email)
+  });
+}
