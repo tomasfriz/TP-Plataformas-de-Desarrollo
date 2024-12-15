@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Card, ListGroup, Container, Form, Badge, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import infoEvent from '../constantes/InfoEvent';
+import React, { useState } from "react";
+import { Container, Form, ListGroup, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import InfoEvent from "../constantes/InfoEvent";
+import EventItem from "../../Components/eventItem/EventItem";
 
 const SearchEvents = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -11,9 +12,10 @@ const SearchEvents = () => {
         setSearchTerm(event.target.value);
     };
 
-    const filteredEventos = infoEvent.eventosData.filter((evento) =>
-        evento.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        evento.ubicacion.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredEventos = InfoEvent.eventos.filter(
+        (evento) =>
+            evento.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            evento.ubicacion.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const handleEventoClick = (id) => {
@@ -38,27 +40,7 @@ const SearchEvents = () => {
                 />
                 <ListGroup variant="flush">
                     {filteredEventos.map((evento) => (
-                        <ListGroup.Item
-                            key={evento.id}
-                            action
-                            onClick={() => handleEventoClick(evento.id)}
-                            className="d-flex align-items-center mb-3"
-                        >
-                            <Card.Img
-                                variant="left"
-                                src={evento.imagen}
-                                style={{ width: '150px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
-                            />
-                            <div className="flex-grow-1">
-                                <h5>{evento.titulo}</h5>
-                                <p className="text-muted mb-1"><i className="bi bi-geo-alt"></i> {evento.ubicacion}</p>
-                                <div>
-                                    <Badge bg="primary" className="me-1">{evento.cupos}</Badge>
-                                    <Badge bg="info" className="me-1">{evento.nivel}</Badge>
-                                    <Badge bg="secondary">{evento.genero}</Badge>
-                                </div>
-                            </div>
-                        </ListGroup.Item>
+                        <EventItem key={evento.id} evento={evento} onClick={() => handleEventoClick(evento.id)} />
                     ))}
                 </ListGroup>
             </Container>

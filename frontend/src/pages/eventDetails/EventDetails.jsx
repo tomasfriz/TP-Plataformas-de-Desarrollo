@@ -14,15 +14,15 @@ const EventDetails = () => {
             <Container className="my-4">
                 <Card className="shadow-sm border-0">
                     <div className="position-relative">
-                        <img src={infoEvent.evento.imagen} alt="Evento" className="img-fluid w-100" style={{ height: '300px', objectFit: 'cover' }} />
+                        <img src={infoEvent.evento.imagen} alt="Evento" className="img-fluid w-100" style={{ height: '500px', objectFit: 'cover' }} />
                         <div className="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                         <h1 className="position-absolute top-50 start-50 translate-middle text-white">
-                            <Badge bg="info" className="p-2">{infoEvent.evento.nombre}</Badge>
+                            <Badge className="p-2" style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>{infoEvent.evento.nombre}</Badge>
                         </h1>
                         <div className="position-absolute bottom-0 start-0 p-3">
-                            <Badge bg="primary" className="me-1">{infoEvent.evento.jugadores}</Badge>
-                            <Badge bg="secondary" className="me-1">{infoEvent.evento.genero}</Badge>
-                            <Badge bg="info">{infoEvent.evento.nivel}</Badge>
+                            <Badge className="me-1" style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>{infoEvent.evento.jugadores}</Badge>
+                            <Badge className="me-1" style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>{infoEvent.evento.genero}</Badge>
+                            <Badge style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>{infoEvent.evento.nivel}</Badge>
                         </div>
                     </div>
                     <Card.Body>

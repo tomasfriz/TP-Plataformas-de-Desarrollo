@@ -39,7 +39,10 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <Container fluid className="bg-dark text-white py-4">
+            <Container fluid className="py-4" style={{
+                backgroundColor: 'var(--custom-black)',
+                color: 'var(--custom-white)',
+            }}>
                 <Container>
                     <p className="text-center mb-0 p-3">
                         Crea eventos sobre la disciplina que más te guste y elige el lugar, la fecha y la hora.
@@ -63,13 +66,11 @@ const HomePage = () => {
                     <Col>
                         <CardButton texto="Otros Eventos" link="/otherEvents">
                             <span className="bi bi-question-square fs-3"></span>
-
                         </CardButton>
                     </Col>
                     <Col>
                         <CardButton texto="Lugares" link="/places">
                             <span className="bi bi-geo-alt fs-2"></span>
-
                         </CardButton>
                     </Col>
                     <Col>

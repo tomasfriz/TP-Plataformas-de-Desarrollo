@@ -5,14 +5,15 @@
 
 .titulo {
     font-size: 5em;
-    margin-bottom: 20px;
-    color: #40B1D5;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: var(--custom-green);
 }
 
 .texto {
     font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #555;
+    margin-bottom: 30px;
+    color: var(--custom-black);
 }
 
 .imagen {

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import infoLogin from '../constantes/InfoLogin';
+import { AppContext } from '../../context/AppProvider';
 
 const Login = () => {
+    const { login } = useContext(AppContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -34,17 +36,24 @@ const Login = () => {
             }
         }
     };
-
+    
     return (
-        <div>
-            <Container className="mt-3">
-                <Button variant="link" href="/auth" className="text-white bg-dark">
-                    <i className="bi bi-arrow-left"></i>
-                </Button>
-            </Container>
-            <Container className="mt-5">
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "75vh",
+        }}>
+            <Container className="mt-5" style={{
+                width: "100%",
+                maxWidth: "100vh",
+                padding: "20px",
+                backgroundColor: 'var(--custom-gray)',
+                borderRadius: "10px",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+            }}>
                 <h2>¡Bienvenido!</h2>
-                <p>Ingrese su nombre de usuario y su contraseña para empezar</p>
+                <p>Ingrese su mail y su contraseña para empezar</p>
                 <Form onSubmit={handleLogin}>
                     <Form.Group controlId="formUsername" className="mb-3">
                         <Form.Label>Correo electrónico:</Form.Label>
@@ -68,11 +77,18 @@ const Login = () => {
 
                     {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                    <Button variant="success" type="submit">
+                    <Button onClick={handleLogin} type="submit" style={{
+                        backgroundColor: 'var(--custom-green)',
+                        color: 'var(--custom-white)',
+                    }}>
                         Iniciar sesión
                     </Button>
-                    <Button variant="link" onClick={handleRegister} style={{ marginLeft: '10px' }}>
-                        Registrar
+                    <Button onClick={handleRegister} style={{
+                        marginLeft: '10px',
+                        backgroundColor: 'var(--custom-green)',
+                        color: 'var(--custom-white)',
+                    }}>
+                        Registrarse
                     </Button>
                 </Form>
             </Container>

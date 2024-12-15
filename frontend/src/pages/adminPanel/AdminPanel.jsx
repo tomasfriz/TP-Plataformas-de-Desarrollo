@@ -1,18 +1,18 @@
-import React from 'react';
-import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
-import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Container, ListGroup, Button } from 'react-bootstrap';
+import AppContext from '../../context/AppProvider';
 import infoEvent from '../constantes/InfoEvent';
-import infoLogin from '../constantes/InfoLogin';
+import EventItem from '../../Components/eventItem/EventItem';
 
 const AdminPanel = () => {
-    const navigate = useNavigate();
+    const { user } = useContext(AppContext);
 
-    const handleEventClick = (url) => {
-        if (url.startsWith('http') || url.startsWith('https')) {
-            window.open(url, '_blank');
-        } else {
-            navigate(url);
-        }
+    if (!user || user.rolId !== 1) {
+        return <Navigate to="/" replace />;
+    }
+
+    const handleEventoClick = (id) => {
     };
 
     return (
@@ -23,44 +23,41 @@ const AdminPanel = () => {
                 </Button>
             </Container>
             <Container>
-                <h2 className="my-4">Eventos</h2>
+                <h2 className="my-5">Panel de administrador</h2>
+                <h3 className="my-4">Eventos</h3>
                 <ListGroup variant="flush">
-                    {infoEvent.otrosEventos.map((evento) => (
-                        <ListGroup.Item
-                            key={evento.id}
-                            action
-                            onClick={() => handleEventClick(evento.url)}
-                            className="d-flex align-items-center mb-3"
-                        >
-                            <Card.Img
-                                variant="left"
-                                src={evento.imagen}
-                                style={{ width: '150px', height: '80px', objectFit: 'cover', marginRight: '15px' }}
-                            />
-                            <div className="flex-grow-1">
-                                <h5>{evento.titulo}</h5>
-                                <p className="text-muted">{evento.ubicacion}</p>
-                            </div>
-                        </ListGroup.Item>
+                    {infoEvent.eventos.map((evento) => (
+                        <EventItem key={evento.id} evento={evento} onClick={() => handleEventoClick(evento.id)} />
                     ))}
-                </ListGroup>    
+                </ListGroup>
             </Container>
             <Container>
-                <h2 className="my-4">Usuarios</h2>
+                <h3 className="my-4">Usuarios</h3>
                 <ListGroup variant="flush">
-                    {infoLogin.usuarios.map((user) => (
-                        <ListGroup.Item>
+                    {user && user.usuarios && user.usuarios.map((usuario) => (
+                        <ListGroup.Item
+                            key={usuario.id}
+                            className="d-flex align-items-center mb-3"
+                            style={{
+                                borderRadius: '10px',
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
                             <div className="flex-grow-1">
+<<<<<<< HEAD
                                 <h5>{user.usuario} - {user.rol}</h5>
                                 <p className="text-muted">{user.ubicacion}</p>
+=======
+                                <h5>{usuario.usuario} - {usuario.rol}</h5>
+                                <p className="text-muted">{usuario.ubicacion || 'Ubicación no disponible'}</p>
+>>>>>>> 8853d5de651823228db88b4869a9b2b31ba7a959
                             </div>
                         </ListGroup.Item>
                     ))}
-                </ListGroup>   
+                </ListGroup>
             </Container>
         </div>
     );
 };
-
 
 export default AdminPanel;

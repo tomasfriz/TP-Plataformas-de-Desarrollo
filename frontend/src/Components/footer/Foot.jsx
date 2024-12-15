@@ -4,7 +4,9 @@ import { Container } from 'react-bootstrap';
 
 const Foot = () => {
     return (
-        <footer className="bg-dark text-center text-white py-3">
+        <footer className="text-center text-white py-3" style={{
+            backgroundColor: 'var(--custom-black)',
+        }}>
             <Container>
                 <small>&copy;2024 NEXOSPORT. Todos los derechos reservados.</small>
             </Container>

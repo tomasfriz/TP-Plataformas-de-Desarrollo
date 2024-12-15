@@ -28,7 +28,7 @@ const Places = () => {
                     <i className="bi bi-arrow-left"></i>
                 </Button>
             </Container>
-            <Container>
+            <Container >
                 <h2 className="my-4">Lugares</h2>
                 <ListGroup variant="flush">
                     {lugaresData.map((lugar) => (
@@ -36,8 +36,10 @@ const Places = () => {
                             key={lugar.id}
                             action
                             onClick={() => handleLugarClick(lugar.url)}
-                            className="d-flex align-items-center mb-3"
-                        >
+                            className="d-flex align-items-center mb-3" style={{
+                                borderRadius: '10px',
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                            }}>
                             <Card.Img
                                 variant="left"
                                 src={lugar.imagen}
