@@ -47,7 +47,10 @@ const EventDetails = () => {
                         </Row>
 
                         {!isParticipating ? (
-                            <Button variant="success" onClick={handleParticipate}>
+                            <Button style={{
+                                backgroundColor: 'var(--custom-green)',
+                                color: 'var(--custom-white)',
+                            }} onClick={handleParticipate}>
                                 Participar
                             </Button>
                         ) : (
