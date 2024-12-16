@@ -46,7 +46,6 @@ const EventDetails = () => {
                             </Col>
                         </Row>
 
-                        {/* Mostrar botón o mensaje dependiendo del estado */}
                         {!isParticipating ? (
                             <Button variant="success" onClick={handleParticipate}>
                                 Participar
