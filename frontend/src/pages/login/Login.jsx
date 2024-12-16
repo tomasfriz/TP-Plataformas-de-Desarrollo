@@ -26,7 +26,8 @@ const Login = () => {
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
-                if (email === infoLogin.mailAdmin) {
+                console.log(user)
+                if (user.rol === 1) {
                     navigate('/adminPanel');
                 } else {
                     navigate('/');
