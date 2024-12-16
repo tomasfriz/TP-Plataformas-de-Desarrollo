@@ -1,7 +1,6 @@
-// src/firebase.js
-
-import firebase from 'firebase/app';  // Importa Firebase
-import 'firebase/auth';  // Importa la funcionalidad de autenticación
+// Importa las funciones necesarias desde Firebase v9+
+import { initializeApp } from 'firebase/app';  // Inicializa la app
+import { getAuth } from 'firebase/auth';        // Obtén la instancia de autenticación
 
 // Configuración de Firebase (debes reemplazar con tus propios datos)
 const firebaseConfig = {
@@ -13,12 +12,8 @@ const firebaseConfig = {
   appId: "1:274315220115:web:0a13d57198be2f64576966"
 };
 
-// Inicializa Firebase si no lo está
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app(); // Si ya está inicializado, usa la instancia existente
-}
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
 
-// Exporta la instancia de autenticación para usarla en otros componentes
-export const auth = firebase.auth();
+// Obtén la instancia de autenticación
+export const auth = getAuth(app);
