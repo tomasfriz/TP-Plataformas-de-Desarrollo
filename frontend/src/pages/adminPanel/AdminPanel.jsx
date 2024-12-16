@@ -44,13 +44,8 @@ const AdminPanel = () => {
                             }}
                         >
                             <div className="flex-grow-1">
-<<<<<<< HEAD
-                                <h5>{user.usuario} - {user.rol}</h5>
-                                <p className="text-muted">{user.ubicacion}</p>
-=======
                                 <h5>{usuario.usuario} - {usuario.rol}</h5>
                                 <p className="text-muted">{usuario.ubicacion || 'Ubicación no disponible'}</p>
->>>>>>> 8853d5de651823228db88b4869a9b2b31ba7a959
                             </div>
                         </ListGroup.Item>
                     ))}

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import infoEvent from '../constantes/InfoEvent';
 
 const EventDetails = () => {
+    const [isParticipating, setIsParticipating] = useState(false);
+
+    const handleParticipate = () => {
+        setIsParticipating(true);
+    };
+
     return (
         <div>
             <Container className="mt-3">
@@ -39,6 +45,15 @@ const EventDetails = () => {
                                 <h6>{infoEvent.evento.ubicacion}</h6>
                             </Col>
                         </Row>
+
+                        {/* Mostrar botón o mensaje dependiendo del estado */}
+                        {!isParticipating ? (
+                            <Button variant="success" onClick={handleParticipate}>
+                                Participar
+                            </Button>
+                        ) : (
+                            <p className="text-success fw-bold">¡Usted está participando en este evento!</p>
+                        )}
                     </Card.Body>
                 </Card>
             </Container>

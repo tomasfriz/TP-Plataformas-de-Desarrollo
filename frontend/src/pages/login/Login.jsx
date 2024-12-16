@@ -24,8 +24,8 @@ const Login = () => {
             setError("Por favor ingrese ambos campos");
         } else {
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);        
-                const user = userCredential.user;                
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
                 if (email === infoLogin.mailAdmin) {
                     navigate('/adminPanel');
                 } else {
@@ -36,7 +36,7 @@ const Login = () => {
             }
         }
     };
-    
+
     return (
         <div style={{
             display: "flex",
