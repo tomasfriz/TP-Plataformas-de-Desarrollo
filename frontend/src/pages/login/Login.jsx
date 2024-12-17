@@ -24,15 +24,22 @@ const Login = () => {
             setError("Por favor ingrese ambos campos");
         } else {
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const userCredential = await signInWithEmailAndPassword(auth, username, password);
                 const user = userCredential.user;
                 console.log(user);
-                if (email === infoLogin.mailAdmin) {
+                const reloadUserInfo = user.reloadUserInfo;
+                console.log(reloadUserInfo);
+                const customAttributes = reloadUserInfo.customAttributes;
+                console.log(customAttributes);
+                const rol = customAttributes.rol;
+                console.log(rol);
+                if (rol === 1) {
                     navigate('/adminPanel');
                 } else {
                     navigate('/');
                 }
             } catch (err) {
+                console.log(err);
                 setError("Error al iniciar sesión. Verifique sus credenciales.");
             }
         }
