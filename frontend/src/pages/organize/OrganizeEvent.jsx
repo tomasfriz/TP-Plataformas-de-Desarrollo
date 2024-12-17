@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState }  from 'react';
 import { Container, Form, Row, Col, Button, Alert } from 'react-bootstrap';
 import { createEvent } from '../api.js';
-import AppContext from '../../context/AppProvider';
 
 const OrganizeEvent = () => {
-    const { user } = useContext(AppContext);
+    const storedMail = sessionStorage.getItem('userMail');
     const [showSuccess, setShowSuccess] = useState(false);
     const [formData, setFormData] = useState({
-        organizerEmail: user.mail,
+        organizerEmail: storedMail,
         eventSport: '',
         eventLocation: '',
         eventAddress: '',
@@ -17,7 +16,7 @@ const OrganizeEvent = () => {
         eventTime: '',
         skillLevel: 'Principiante',
         playerGender: 'Mixto',
-        participants: [user.mail]
+        participants: [storedMail]
     });
 
     const handleChange = (e) => {
@@ -39,7 +38,7 @@ const OrganizeEvent = () => {
     
             // Limpiamos el formulario después de crear el evento
             setFormData({
-                organizerEmail: user.mail,
+                organizerEmail: storedMail,
                 eventSport: '',
                 eventLocation: '',
                 eventAddress: '',
@@ -49,7 +48,7 @@ const OrganizeEvent = () => {
                 eventTime: '',
                 skillLevel: 'Principiante',
                 playerGender: 'Mixto',
-                participants: [user.mail]
+                participants: [storedMail]
             });
     
             // Ocultamos el mensaje de éxito después de 3 segundos

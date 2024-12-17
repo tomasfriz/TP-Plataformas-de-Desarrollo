@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const URL_BASE = 'http://localhost:3000';
+const URL_BASE = 'http://localhost:3002';
 
 export const createEvent = async (eventData) => {
   try {
     const response = await axios.post(`${URL_BASE}/event`, eventData);
+    console.log(`${URL_BASE}/event`)
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -15,7 +16,7 @@ export const createEvent = async (eventData) => {
 
 export const getEvents = async () => {
   try {
-    const response = await axios.get(`${URL_BASE}/event/`);
+    const response = await axios.get(`${URL_BASE}/event`);
     console.log(response.data);
     return response.data;
   } catch (error) {

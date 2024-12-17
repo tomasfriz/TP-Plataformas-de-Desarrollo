@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import infoEvent from '../constantes/InfoEvent';
+import { getEventById, subscribeToEvent} from '../api.js';
+import { useLocation } from 'react-router-dom';
 
 const EventDetails = () => {
+    const storedMail = sessionStorage.getItem('userMail');
+    const location = useLocation(); 
+  
+    const pathParts = location.pathname.split('/');  // Divide la URL en partes usando '/' como separador
+    const id = pathParts[pathParts.length - 1];
+    
     const [isParticipating, setIsParticipating] = useState(false);
 
     const handleParticipate = () => {
-        setIsParticipating(true);
+        subscribeToEvent(storedMail, id);
     };
+
+    const [evento, setEvent] = useState([]);
+
+    const searchMyevent = async () => {
+            try {
+                // Obtenemos los eventos de la API
+                const response = await getEventById(id);
+                // Actualizamos el estado con los eventos obtenidos
+                setEvent(response);
+            } catch (error) {
+                console.error('Error al buscar los eventos:', error);
+            }
+        };
+
+
+    useEffect(() => {
+        searchMyevent();
+    }, []);
 
     return (
         <div>

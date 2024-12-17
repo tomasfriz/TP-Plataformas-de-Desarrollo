@@ -18,21 +18,21 @@ const EventItem = ({ evento, onClick }) => {
                 style={{ width: "150px", height: "80px", objectFit: "cover", marginRight: "15px" }}
             />
             <div className="flex-grow-1">
-                <h5>{evento.nombre}</h5>
+                <h5>{evento.eventSport}</h5>
                 <p className="text-muted mb-1">
-                    <i className="bi bi-geo-alt"></i> {evento.ubicacion}
+                    <i className="bi bi-geo-alt"></i> {evento.eventLocation}
                 </p>
                 <div>
-                    {evento.jugadores && (
+                    {evento.maxPlayers && (
                         <Badge className="me-1" style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>
-                            {evento.jugadores}
+                            {evento.maxPlayers}
                         </Badge>
                     )}
                     <Badge className="me-1" style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>
-                        {evento.nivel}
+                        {evento.skillLevel}
                     </Badge>
                     <Badge style={{ backgroundColor: "var(--custom-green) !important", color: "var(--custom-white) !important" }}>
-                        {evento.genero}
+                        {evento.playerGender}
                     </Badge>
                 </div>
             </div>

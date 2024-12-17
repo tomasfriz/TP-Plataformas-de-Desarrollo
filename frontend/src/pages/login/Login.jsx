@@ -33,6 +33,7 @@ const Login = () => {
                 console.log(customAttributes);
                 const rol = customAttributes.rol;
                 console.log(rol);
+                sessionStorage.setItem('userMail', username);
                 if (rol === 1) {
                     navigate('/adminPanel');
                 } else {
