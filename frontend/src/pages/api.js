@@ -32,7 +32,6 @@ export const register = async (mail, clave, rol) => {
   }
 };
 
-// Crear evento
 export const createEvent = async (eventData) => {
   try {
     const response = await axios.post(`${URL_BASE}/event`, eventData);
@@ -44,7 +43,6 @@ export const createEvent = async (eventData) => {
   }
 };
 
-// Obtener eventos
 export const getEvents = async () => {
   try {
     const response = await axios.get(`${URL_BASE}/event/`);
@@ -56,7 +54,6 @@ export const getEvents = async () => {
   }
 };
 
-// Obtener evento específico
 export const getEventById = async (id) => {
   try {
     const response = await axios.get(`${URL_BASE}/event/${id}`);
