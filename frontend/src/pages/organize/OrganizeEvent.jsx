@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { Container, Form, Row, Col, Button, Alert } from 'react-bootstrap';
+import { createEvent } from '../api.js';
+import AppContext from '../../context/AppProvider';
 
 const OrganizeEvent = () => {
+    const { user } = useContext(AppContext);
     const [showSuccess, setShowSuccess] = useState(false);
     const [formData, setFormData] = useState({
+        organizerEmail: user.mail,
         eventSport: '',
         eventLocation: '',
         eventAddress: '',
         maxPlayers: '2',
         eventDate: '',
+        eventRegistrationDeadline: '',
         eventTime: '',
         skillLevel: 'Principiante',
         playerGender: 'Mixto',
+        participants: [user.mail]
     });
 
     const handleChange = (e) => {
@@ -19,24 +25,40 @@ const OrganizeEvent = () => {
         setFormData((prev) => ({ ...prev, [id]: value }));
     };
 
-    const handleFormSubmit = (e) => {
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+    
         console.log('Formulario enviado:', formData);
-
-        setShowSuccess(true);
-        setFormData({
-            eventSport: '',
-            eventLocation: '',
-            eventAddress: '',
-            maxPlayers: '2',
-            eventDate: '',
-            eventTime: '',
-            skillLevel: 'Principiante',
-            playerGender: 'Mixto',
-        });
-
-        setTimeout(() => setShowSuccess(false), 3000);
+    
+        try {
+            const response = await createEvent(formData);
+    
+            // Si la respuesta es exitosa, mostramos el mensaje de éxito
+            setShowSuccess(true);
+    
+            // Limpiamos el formulario después de crear el evento
+            setFormData({
+                organizerEmail: user.mail,
+                eventSport: '',
+                eventLocation: '',
+                eventAddress: '',
+                maxPlayers: '2',
+                eventDate: '',
+                eventRegistrationDeadline: '',
+                eventTime: '',
+                skillLevel: 'Principiante',
+                playerGender: 'Mixto',
+                participants: [user.mail]
+            });
+    
+            // Ocultamos el mensaje de éxito después de 3 segundos
+            setTimeout(() => setShowSuccess(false), 3000);
+    
+        } catch (error) {
+            // Si ocurre un error, lo mostramos en consola o puedes manejarlo de otra forma
+            console.error('Error al crear el evento:', error);
+        }
     };
 
     return (

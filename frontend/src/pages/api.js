@@ -2,36 +2,6 @@ import axios from 'axios';
 
 const URL_BASE = 'http://localhost:3000';
 
-
-export const login = async (mail, clave) => {
-  try {
-    const response = await axios.post(`${URL_BASE}/user/login`, {
-      mail,
-      clave,
-    });
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error /user/login:', error);
-    throw error;
-  }
-};
-
-export const register = async (mail, clave, rol) => {
-  try {
-    const response = await axios.post(`${URL_BASE}/user/register`, {
-      mail,
-      clave,
-      rol,
-    });
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error /user/register:', error);
-    throw error;
-  }
-};
-
 export const createEvent = async (eventData) => {
   try {
     const response = await axios.post(`${URL_BASE}/event`, eventData);
@@ -76,17 +46,6 @@ export const deleteEventById = async (id) => {
   }
 };
 
-export const putEventById = async (id, eventData) => {
-  try {
-    const response = await axios.put(`${URL_BASE}/event/${id}`, eventData);
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error /event/ con id put:', error);
-    throw error;
-  }
-};
-
 
 export const subscribeToEvent = async (mail, id) => {
   try {
@@ -98,6 +57,17 @@ export const subscribeToEvent = async (mail, id) => {
     return response.data;
   } catch (error) {
     console.error('Error /event/suscribe:', error);
+    throw error;
+  }
+};
+
+export const myEvents = async (mail) => {
+  try {
+    const response = await axios.get(`${URL_BASE}/event/myEvents/${mail}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error /event/myEvents:', error);
     throw error;
   }
 };
